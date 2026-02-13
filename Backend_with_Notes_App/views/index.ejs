@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Document</title>
+</head>
+
+<body class="w-full bg-black text-white">
+  <div class="input min-h-60 p-2">
+    <form action="/create" method="post"
+      class="m-auto w-120 min-h-60 bg-green-800 rounded-lg flex flex-col gap-4 items-center justify-center">
+      <h2>Create Your Note Here...</h2>
+      <input class="w-60 border border-sm bg-zinc-800 p-1 outline-none focus:outline-none focus:border-2 rounded-sm"
+        type="text" name="title" id="title" placeholder="Enter tile">
+      <textarea
+        class="w-60 resize-none border rounded-sm bg-zinc-800 p-1 outline-none focus:outline-none focus:border-2 rounded-sm"
+        name="description" id="description" placeholder="Enter description"></textarea>
+      <input class="bg-blue-600 p-1 rounded-sm active:bg-blue-400 border" type="submit" value="Create Task">
+    </form>
+  </div>
+  <div class="tasks pt-10 pl-3 flex flex-wrap gap-3">
+    <% if(files.length> 0) { %>
+      <% files.forEach((fileNameFromTaskFilesFolder)=>{ %>
+        <div class="task w-72 px-3 py-4 rounded-md bg-zinc-800">
+          <h1 class="text-white text-3xl tracking-tighter">
+            <%= fileNameFromTaskFilesFolder %>
+          </h1>
+          <a class="text-blue-500 inline-block mt-3" href="">Read More...</a>
+        </div>
+        <% }) %>
+          <% } else { %>
+            <h3 class="text-zinc-600">No tasks here.</h3>
+            <% } %>
+
+
+
+
+
+  </div>
+
+  <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
